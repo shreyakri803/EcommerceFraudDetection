@@ -139,6 +139,8 @@ Insights & Takeaways
 
 ✅ Final Model Selected: **XGBoost with SMOTE + Threshold Tuning**
 ⚡ Because in fraud detection, **catching more fraudulent cases (high recall)** is more important than slightly lowering precision.
+<img width="658" height="547" alt="image" src="https://github.com/user-attachments/assets/dd42ea68-1ccb-4b45-8e23-68135a08ae33" />
+
 
 flowchart LR
     A[Data Source (CSV)] --> B[Data Extraction (Pandas)]

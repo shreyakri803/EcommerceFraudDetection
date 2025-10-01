@@ -1,9 +1,9 @@
 # EcommerceFraudDetection
 📊 Dataset Summary
-Shape:23,634 rows × 16 columns
-Data Types:
-  Categorical (object): Transaction ID, Customer ID, Transaction Date, Payment Method, Product Category, Customer Location, Device Used, IP Address, Shipping Address, Billing Address
-  Numeric (float/int): Transaction Amount, Quantity, Customer Age, Account Age Days, Transaction Hour, Is Fraudulent
+* Shape:23,634 rows × 16 columns
+* Data Types:
+  * Categorical (object): Transaction ID, Customer ID, Transaction Date, Payment Method, Product Category, Customer Location, Device Used, IP Address, Shipping Address, Billing Address
+  * Numeric (float/int): Transaction Amount, Quantity, Customer Age, Account Age Days, Transaction Hour, Is Fraudulent
 
 ---
 
@@ -22,11 +22,11 @@ Data Types:
 * Customer Age anomaly: Some negative values (likely data entry errors).
 * Transaction Amount: Right-skewed with large outliers (up to $9716).
 * Categorical Uniqueness:
-  Customer IDs: 23,634 unique
-  Payment Methods: 4
-  Product Categories: 5
-  Devices: 3
-  Customer Locations: ~14,868 unique
+  * Customer IDs: 23,634 unique
+  * Payment Methods: 4
+  * Product Categories: 5
+  * Devices: 3
+  * Customer Locations: ~14,868 unique
 
 ---
 🎯 Target Variable (`Is Fraudulent`)

@@ -1,4 +1,22 @@
 # EcommerceFraudDetection
+📝 Problem Statement-
+E-commerce platforms face a significant challenge in safeguarding against fraudulent transactions. These fraudulent activities not only lead to financial losses but also erode customer trust. Since fraud accounts for a small percentage of overall transactions (~5%), the dataset is highly imbalanced.
+
+The challenge is to:
+* Detect fraudulent transactions accurately.
+* Minimize false negatives (missed frauds).
+* Avoid too many false positives (blocking genuine users).
+
+🎯 Objective / Solution Approach
+The solution involves building a fraud detection system that can:
+* Extract and preprocess data using Python.
+* Engineer advanced features that capture suspicious behaviors.
+* Handle imbalanced data effectively.
+* Train and evaluate machine learning models with a focus on precision & recall trade-off.
+* Provide interpretable insights into fraud patterns (feature importance, distribution analysis).
+
+  -----------
+  
 📊 Dataset Summary
 * Shape:23,634 rows × 16 columns
 * Data Types:

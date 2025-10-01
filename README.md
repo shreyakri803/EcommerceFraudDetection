@@ -143,11 +143,17 @@ Insights & Takeaways
 
 
 flowchart LR
+    
     A[Data Source (CSV)] --> B[Data Extraction (Pandas)]
+    
     B --> C[Data Preprocessing (Cleaning, Encoding, Feature Engineering)]
+    
     C --> D[Handle Class Imbalance (SMOTE, Class Weights)]
+    
     D --> E[Model Training (Random Forest, XGBoost)]
+    
     E --> F[Model Evaluation (Precision, Recall, F1, Confusion Matrix)]
+    
     F --> G[Insights & Deployment Readiness]
 
 ---

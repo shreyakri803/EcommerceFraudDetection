@@ -147,3 +147,30 @@ flowchart LR
     D --> E[Model Training (Random Forest, XGBoost)]
     E --> F[Model Evaluation (Precision, Recall, F1, Confusion Matrix)]
     F --> G[Insights & Deployment Readiness]
+
+---
+
+## ✅ Conclusion & Future Work
+
+### **Conclusion**
+* Built an end-to-end pipeline for **e-commerce fraud detection** using **SQL + Python**.
+* Explored and analyzed **23,634 transactions** with 16 features.
+* Identified key challenges: **class imbalance (5% fraud)**, **outliers**, and **anomalous values** (e.g., negative ages).
+* Designed **feature engineering** to capture suspicious behavior:
+  * Address mismatches
+  * Odd-hour and weekend transactions
+  * High-value transactions
+  * Customer behavior & transaction velocity
+* **Baseline model (Random Forest):** High precision but low recall for fraud.
+* **Improved model (XGBoost + SMOTE + threshold tuning):** Better fraud recall while keeping precision strong.
+* Delivered insights into **patterns that indicate fraud**, helping improve trust and security in e-commerce.
+
+---
+
+### **Future Work**
+* 🔹 **Anomaly Detection Models:** Explore Isolation Forest, One-Class SVM for rare fraud signals.
+* 🔹 **Deep Learning Approaches:** Use LSTMs for sequential transaction patterns or Autoencoders for anomaly detection.
+* 🔹 **Real-Time Fraud Detection:** Deploy pipeline with streaming data (Kafka, Spark, or AWS Kinesis).
+* 🔹 **Explainability:** Apply SHAP or LIME to explain model predictions to business stakeholders.
+* 🔹 **Integration with Business Rules:** Combine ML predictions with rule-based systems (e.g., flagging transactions over certain thresholds).
+* 🔹 **Continuous Learning:** Automate model retraining as new fraud strategies emerge.

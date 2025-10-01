@@ -45,7 +45,6 @@ The solution involves building a fraud detection system that can:
   * Product Categories: 5
   * Devices: 3
   * Customer Locations: ~14,868 unique
-
 ---
 🎯 Target Variable (`Is Fraudulent`)
 
@@ -53,3 +52,98 @@ The solution involves building a fraud detection system that can:
 * **1 → Fraudulent transactions:** 5.17%
 * **Class Imbalance:** The dataset is highly imbalanced, requiring special handling (SMOTE, class weighting, threshold tuning)
 ------------------------------------------------------------------------------------------------------------------------------
+
+
+🛠️ Project Pipeline: SQL Extraction → Preprocessing → Feature Engineering → Handling Imbalance → Modeling → Evaluation → Insights & Deployment.
+
+📚 Libraries & Tools
+* Data Handling: pandas, numpy
+* Visualization: matplotlib, seaborn
+* Machine Learning: scikit-learn, xgboost, imblearn (for SMOTE)
+* Metrics & Evaluation: sklearn.metrics (classification_report, confusion_matrix)
+
+Insights & Takeaways
+* Fraudulent patterns often linked to:
+* High-value transactions.
+* Transactions at odd hours.
+* New or low-account-age customers.
+* Address mismatches.
+
+
+## 📈 Results
+
+---
+
+### **1. Baseline: Random Forest Classifier**
+
+* **Accuracy:** 97%
+* **Fraud Precision:** 95%
+* **Fraud Recall:** 36%
+* **Fraud F1-score:** 52%
+* **Observation:**
+  * Model was good at identifying fraud when flagged (high precision).
+  * However, it missed most fraudulent cases (low recall → many false negatives).
+
+---
+
+### **2. Random Forest (with Class Weights)**
+* **Accuracy:** ~96%
+* **Fraud Precision:** ~80%
+* **Fraud Recall:** ~55%
+* **Fraud F1-score:** ~65%
+* **Observation:**
+  * Using `class_weight='balanced'` improved recall slightly.
+  * Still not enough for production-level fraud detection.
+
+---
+
+### **3. XGBoost (Baseline)**
+* **Accuracy:** 96–97%
+* **Fraud Precision:** ~88%
+* **Fraud Recall:** ~60%
+* **Fraud F1-score:** ~71%
+* **Observation:**
+  * Better balance between precision and recall than Random Forest.
+  * More effective in capturing nonlinear fraud patterns.
+
+---
+
+### **4. XGBoost + SMOTE Oversampling**
+* **Accuracy:** 95–96%
+* **Fraud Precision:** ~83%
+* **Fraud Recall:** ~74%
+* **Fraud F1-score:** ~78%
+* **Observation:**
+  * Oversampling fraud cases improved recall significantly.
+  * F1-score for fraud improved → fewer missed frauds.
+
+---
+
+### **5. XGBoost + SMOTE + Threshold Tuning** ✅ **(Best Model)**
+* **Accuracy:** ~95%
+* **Fraud Precision:** ~80%
+* **Fraud Recall:** ~85%
+* **Fraud F1-score:** ~82%
+* **Observation:**
+  * Tuned decision threshold to prioritize fraud detection.
+  * Best trade-off: high recall with decent precision.
+  * Much fewer false negatives (critical for fraud detection).
+
+---
+
+## 🎯 Key Takeaways
+
+* **Random Forest:** High accuracy but poor fraud recall.
+* **XGBoost (baseline):** Better balance between fraud precision & recall.
+* **XGBoost + SMOTE + Threshold Tuning:** Best overall → strong recall (85%) with good precision.
+
+✅ Final Model Selected: **XGBoost with SMOTE + Threshold Tuning**
+⚡ Because in fraud detection, **catching more fraudulent cases (high recall)** is more important than slightly lowering precision.
+
+flowchart LR
+    A[Data Source (CSV)] --> B[Data Extraction (Pandas)]
+    B --> C[Data Preprocessing (Cleaning, Encoding, Feature Engineering)]
+    C --> D[Handle Class Imbalance (SMOTE, Class Weights)]
+    D --> E[Model Training (Random Forest, XGBoost)]
+    E --> F[Model Evaluation (Precision, Recall, F1, Confusion Matrix)]
+    F --> G[Insights & Deployment Readiness]
